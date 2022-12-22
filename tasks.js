@@ -62,7 +62,7 @@ function unknownCommand(c){
 
 /**
  * Says hello
- *
+ * If you write hello x, it should be hello x!, hello return hello!
  * @returns {void}
  */
 function hello(text){
@@ -78,7 +78,7 @@ function hello(text){
 
 function help(){
 
-  console.log('quit\nexit\nhello')
+  console.log('quit\nexit\nhello\n')
 }
 /**
  * Exits the application
