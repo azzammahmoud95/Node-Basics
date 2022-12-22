@@ -69,9 +69,11 @@ function unknownCommand(c){
 function hello(){
   console.log('hello!')
 }
+
 /*
 * Help 
-* @returns {void}
+* function that is supposed to return list of all the possible commands
+* 
  */
 
 function help(){
