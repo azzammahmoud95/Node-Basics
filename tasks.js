@@ -17,7 +17,6 @@ function startApp(name){
   console.log("--------------------")
 }
 
-
 /**
  * Decides what to do depending on the data that was received
  * This function receives the input sent by the user.
@@ -39,14 +38,18 @@ function onDataReceived(text) {
   }
   else if (text === 'hello'||text.startsWith('hello')) {
     hello(text);}
-  else if(text === 'help\n'){
-    help();
-  }
+    else if(text === 'help\n'){
+      help();
+    }
+    else if(text === 'list\n'){
+      list();
+    }
   else{
     unknownCommand(text);
   }
 }
 
+let list2 = ["Item1","Item2","Item3"]
 
 /**
  * prints "unknown command"
@@ -69,6 +72,19 @@ function hello(text){
   console.log(text.trim()+'!')
 }
 
+/**
+ * 
+ * list
+ * @returns {void}
+ * 
+ */
+function list(){
+
+ for(let i=0;i< list2.length;i++){
+  console.log(`${i+1}-${list2[i]}`)
+ }
+}
+
 
 /*
 * Help 
@@ -78,7 +94,7 @@ function hello(text){
 
 function help(){
 
-  console.log('quit\nexit\nhello\n')
+  console.log('quit\nexit\nhello\nlist\n')
 }
 /**
  * Exits the application
