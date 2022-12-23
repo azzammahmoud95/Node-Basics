@@ -55,12 +55,31 @@ function onDataReceived(text) {
     else if(text.trim().split(" ")[0]==='edit'){
       edit(text);
     }
+    else if(text.trim().split(" ")[0]==='check'){
+      check(text);
+    }
   else{
     unknownCommand(text);
   }
 }
 
-let list2 = ["Item1","Item2","Item3"]
+let list2 = [    {
+  task: "attendance",
+  status: true,
+},
+{
+  task: "code",
+  status: true,
+},
+{
+  task: "sleep",
+  status: false,
+},
+{
+  task: "repeat",
+  status: false,
+},
+];
 
 /**
  * prints "unknown command"
@@ -102,7 +121,7 @@ function list(){
  * 
  */
 function add(text){
-  let newItem = text.substr(4,text.length)
+  let newItem = ("[ ]"+(text.substr(4,text.length)))
   list2.push(newItem)
 }
 /**
@@ -166,12 +185,22 @@ function add(text){
   }
 }
 /*
+* check 
+* function that check
+* 
+ */
+function check(text){
+  if(text.trim().split(" ")[1]){
+    
+  }else{
+    console.log("Error: Your syntax should be")
+  }
+}
+/*
 * Help 
 * function that is supposed to return list of all the possible commands
 * 
  */
-
-
 function help(){
 
   console.log('1-quit\n2-exit\n3-hello\n4-list\n5-add\n6-remove\n')
