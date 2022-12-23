@@ -49,6 +49,9 @@ function onDataReceived(text) {
     }else if(text === "add\n"){
       console.log("Error: Your format sould be like [add Item]")
     }
+    else if(text.trim().split(" ")[0]==='remove'){
+      remove(text);
+    }
   else{
     unknownCommand(text);
   }
@@ -99,7 +102,31 @@ function add(text){
   let newItem = text.substr(4,text.length)
   list2.push(newItem)
 }
+/**
+ * 
+ * Remove Command
+ * @returns {void}
+ * 
+ */
 
+ function remove(text) {
+  if (text.trim().split(" ")[1]) {
+      var n = text.trim().split(" ")[1];
+      var b = list2.length;
+      for (let i = 0; i < list2.length; i++) {
+          if (i == n - 1) {
+              list2.splice(i, 1);
+              console.log(`task ${n} removed`);
+          }
+      }
+      if (b === list2.length) {
+          console.log(`task ${n} does not exist`);
+      }
+  } else {
+      list2.pop();
+      console.log("last task removed");
+  }
+}
 /*
 * Help 
 * function that is supposed to return list of all the possible commands
