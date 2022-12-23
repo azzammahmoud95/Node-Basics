@@ -44,6 +44,11 @@ function onDataReceived(text) {
     else if(text === 'list\n'){
       list();
     }
+    else if(text.startsWith('add ')){
+      add(text);
+    }else if(text === "add\n"){
+      console.log("Error: Your format sould be like [add Item]")
+    }
   else{
     unknownCommand(text);
   }
@@ -84,7 +89,16 @@ function list(){
   console.log(`${i+1}-${list2[i]}`)
  }
 }
-
+/**
+ * 
+ * Add Command
+ * @returns {void}
+ * 
+ */
+function add(text){
+  let newItem = text.substr(4,text.length)
+  list2.push(newItem)
+}
 
 /*
 * Help 
